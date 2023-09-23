@@ -269,25 +269,21 @@ export class DotnetAcquisitionPartialInstallation extends DotnetAcquisitionMessa
     }
 }
 
-export class DotnetAcquisitionInProgress extends IEvent {
-    public readonly type = EventType.DotnetAcquisitionInProgress;
-
+export class DotnetAcquisitionInProgress extends DotnetAcquisitionMessage {
     public readonly eventName = 'DotnetAcquisitionInProgress';
-    constructor(public readonly version: string, public readonly requestingExtensionId: string | null) { super(); }
+    constructor(public readonly version: string) { super(); }
 
     public getProperties() {
-        return {InProgressInstallationVersion : this.version, extensionId : this.requestingExtensionId != null ? this.requestingExtensionId : ''};
+        return {InProgressInstallationVersion : this.version};
     }
 }
 
-export class DotnetAcquisitionAlreadyInstalled extends IEvent {
+export class DotnetAcquisitionAlreadyInstalled extends DotnetAcquisitionMessage {
     public readonly eventName = 'DotnetAcquisitionAlreadyInstalled';
-    public readonly type = EventType.DotnetAcquisitionAlreadyInstalled;
-
-    constructor(public readonly version: string, public readonly requestingExtensionId: string | null) { super(); }
+    constructor(public readonly version: string) { super(); }
 
     public getProperties() {
-        return {AlreadyInstalledVersion : this.version, extensionId : this.requestingExtensionId != null ? this.requestingExtensionId : ''};
+        return {AlreadyInstalledVersion : this.version};
     }
 }
 

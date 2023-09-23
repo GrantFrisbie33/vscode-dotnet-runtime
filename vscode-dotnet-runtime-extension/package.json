@@ -13,7 +13,7 @@
 	"description": "Allows acquisition of the .NET runtime specifically for VS Code extension authors.",
 	"appInsightsKey": "02dc18e0-7494-43b2-b2a3-18ada5fcb522",
 	"icon": "images/dotnetIcon.png",
-	"version": "1.7.0",
+	"version": "1.6.0",
 	"publisher": "ms-dotnettools",
 	"engines": {
 		"vscode": "^1.72.0"
@@ -38,7 +38,8 @@
 		"onCommand:dotnet.acquireStatus",
 		"onCommand:dotnet.uninstallAll",
 		"onCommand:dotnet.showAcquisitionLog",
-		"onCommand:dotnet.ensureDotnetDependencies"
+		"onCommand:dotnet.ensureDotnetDependencies",
+		"onCommand:dotnet.reportIssue"
 	],
 	"main": "./dist/extension.js",
 	"types": "./dist/extension.d.ts",
@@ -60,7 +61,7 @@
 				},
 				"dotnetAcquisitionExtension.installTimeoutValue": {
 					"type": "number",
-					"default": 300,
+					"default": 120,
 					"description": "Timeout for installing .NET in seconds."
 				},
 				"dotnetAcquisitionExtension.existingDotnetPath": {
